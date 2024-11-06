@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:Owner;
+#LightSeaGreen:app.landest.co;
+#LightSeaGreen:Login Page;
+#LightSeaGreen:Specify credentials;
+#LightSeaGreen:Click Login Button;
+#LightSeaGreen:HomePage;
+#LightSeaGreen:Asset Menu;
+#LightSeaGreen:Click investment submenu;
+
+#LightSeaGreen:
+1. Display clickable Widgets for "All Properties","Land",
+"Residential" and "Commercial".
+2. Display total property count beside each widget
+3. A list of existing properties(if any) according
+to selected widget."All properties" should always be
+the default whenever the property page loads
+4. There should be an indicator for published properties
+5. There should be facility to multi select properties to
+   publish
+6. Analytics
+    * Total value of all investment assets uploaded by the organization
+    * Total value of all investments done by customers
+    * Total number of shares
+    * Total number of share bought by customers
+    * Total number of share left
+7. Pagination
+8. Add property button
+;
+
+#LightSeaGreen:Click Add Property button;
+note right
+  The Add property process should be
+  in a wizard design
+end note
+-> Next;
+
+#LightSeaGreen:Property Details
+-Name
+-Value
+-Country
+-City
+-Address
+-Amenities dropdown
+-Amenities count
+-categories drop down
+-Description;
+
+-> Continue;
+#LightSeaGreen:Attach property images;
+-> Continue;
+#LightSeaGreen:Add property doc;
+-> Continue;
+#LightSeaGreen: Preview
+-Display all info specified during the process
+-Display a "save and continue" button
+-Display a "publish" button;
+note right
+  There is no aggregate checkbox because
+  investment property are not in the marketplace
+  There should be a tool tip icon
+  that explains what the buttons do
+end note
+
+split
+    #LightSeaGreen:Click Save and continue button;
+    #LightSeaGreen:Navigate to the Property Page;
+    #LightSeaGreen:Property is seen on the property list;
+    #LightSeaGreen:Property is not published to subdomain;
+stop
+ split again
+    #LightSeaGreen:Click Publish button;
+    #LightSeaGreen:Navigate to the Property Page;
+    #LightSeaGreen:Property is seen on the property list;
+    #LightSeaGreen:Property is Published to Subdomain;
+
+stop
+
+
+
+@enduml

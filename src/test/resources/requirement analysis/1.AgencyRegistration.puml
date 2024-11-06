@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:Owner;
+#LightSeaGreen:app.landest.co;
+#LightSeaGreen:Click Register;
+#LightSeaGreen:Registration form is displayed;
+note right
+  There should be a non-compulsory subscription
+  field. Agency chooses their subscription
+  during registration process". If subcription is not
+  specified, free trial option becomes default
+end note
+
+repeat:Fill Registration Form;
+:Click Sign up;
+backward:Display error messages;
+repeat while (Is Form accurately filled?) is (No)
+
+-> Yes
+
+(System auto sends email notification);
+
+#LightSeaGreen:OTP verification page;
+while (Email received?) is (No)
+  #LightSeaGreen:Click Resend Button;
+endwhile
+-> Yes;
+
+repeat:Paste OTP;
+backward :Display error messages;
+repeat while (Is OTP Valid?) is (No)
+
+-> Yes
+(System navigates to login page);
+
+#LightSeaGreen:Login Page;
+
+stop
+@enduml

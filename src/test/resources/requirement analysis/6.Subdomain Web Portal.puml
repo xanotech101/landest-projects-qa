@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:User;
+#LightSeaGreen:Access subdomain url;
+#LightSeaGreen:Display landing page;
+
+
+
+stop
+
+@enduml
