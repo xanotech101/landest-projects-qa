@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:Customer;
+#LightSeaGreen:Mobile app;
+#LightSeaGreen:Login Page;
+#LightSeaGreen:Specify credentials;
+#LightSeaGreen:Click Login Button;
+#LightSeaGreen:HomePage;
+#LightSeaGreen:Property Menu;
+#LightSeaGreen:Clicks on any Property for sale;
+#LightSeaGreen:Property description Page;
+#LightSeaGreen:Clicks on Buy property button;
+#LightSeaGreen:Buy property page;
+#LightSeaGreen:selects payment type;
+split
+#LightSeaGreen:Full payment;
+#LightSeaGreen:Clicks on Make Payment button;
+#LightSeaGreen:Payment page;
+#LightSeaGreen:Fill form accurately;
+split again
+#LightSeaGreen:Installment;
+#LightSeaGreen:Click make payment;
+#LightSeaGreen:Display Payment Plans Page;
+#LightSeaGreen:Selects a plan;
+#LightSeaGreen:;
+#LightSeaGreen:Payment page;
+#LightSeaGreen:Fill form accurately;
+end split
+#LightSeaGreen:Selects payment method;
+split
+#LightSeaGreen:Bank Transfer;
+#LightSeaGreen:Display Bank account details;
+#LightSeaGreen:Click " I have made this transfer" button";
+#LightSeaGreen:Payment confirmation Page;
+#LightSeaGreen:Attach payment receipt;
+#LightSeaGreen:Click confirm payment button;
+#LightSeaGreen:Display payment status feedback message;
+split again
+#LightSeaGreen:Wallet;
+end split
+@enduml

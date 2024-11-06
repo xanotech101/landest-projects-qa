@@ -1,0 +1,40 @@
+@startuml
+start
+#LightSeaGreen:Owner;
+#LightSeaGreen:app.landest.co;
+#LightSeaGreen:Login Page;
+#LightSeaGreen:Specify credentials;
+#LightSeaGreen:Click Login Button;
+
+if (Is email verified?) then (yes)
+    if (Are credentials valid?) then (no)
+        #LightSeaGreen:Display error message "Incorrect credentials.";
+        kill
+    else (yes)
+        #LightSeaGreen:HomePage;
+        if (Is subdomain created?) then (no)
+            #LightSeaGreen:Subdomain pop-up;
+            while (Is subdomain name specified?) is (No)
+                fork
+                    #LightSeaGreen:Home page background clicked;
+                fork again
+                    #LightSeaGreen:Subdomain pop-up closed;
+                end fork
+                #LightSeaGreen:Subdomain pop-up retained;
+            endwhile
+            ->Yes;
+        endif
+        if (Does agency have a plan?) then (No)
+            #LightSeaGreen:Select Plan;
+        else (Yes)
+        endif
+        #LightSeaGreen:Render home page;
+    endif
+else (no)
+    #LightSeaGreen:Display message "Please verify your account to proceed.";
+    #LightSeaGreen:Display otp verification page ;
+
+    kill
+endif
+stop
+@enduml

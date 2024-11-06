@@ -1,0 +1,95 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:Owner;
+#LightSeaGreen:app.landest.co;
+#LightSeaGreen:Login Page;
+#LightSeaGreen:Specify credentials;
+#LightSeaGreen:Click Login Button;
+#LightSeaGreen:HomePage;
+#LightSeaGreen:Property Menu;
+
+#LightSeaGreen:Click purchase submenu;
+#LightSeaGreen:
+1. Display clickable Widgets for "All Properties","Land",
+"Residential" and "Commercial".
+2. Display total property count beside each widget
+3. A list of existing properties(if any) according
+to selected widget."All properties" should always be
+the default whenever the property page loads
+4. There should be an indicator for published properties
+5. There should be an indicator for aggregated properties
+6. There should be facility to multi select properties to
+   publish or to aggregate
+7. Analytics
+      * Total value of all purchase assets uploaded by the organization
+      * Total value of all purchase done by users
+      * Total number of units
+      * Total number of units bought by customers
+      * Total number of units left
+8. Pagination
+9. Add property button
+;
+#LightSeaGreen:Click Add Property button;
+note right
+  The Add property process should be
+  in a wizard design
+end note
+#LightSeaGreen:Property Details
+-Name
+-Value
+-Available unit count
+-Property type
+-Country
+-City
+-Address
+-Amenities dropdown
+-Add Amenities count
+-categories drop down
+-Description;
+-> continue;
+#LightSeaGreen:Attach property media (images);
+-> continue;
+#LightSeaGreen: Add Property document;
+->continue;
+#LightSeaGreen: Preview
+-Display all info specified during the process
+-Display a "save and continue" button
+-Display a "publish" button
+-Display an "aggregate to marketplace" checkbox;
+note right
+  There should be a tool tip icon
+  that explains what both publish property
+  and aggregate property means
+end note
+
+if (Is Aggregate Check Box Checked?) then (Yes)
+  if (Click 'Save and Continue Later'?) then (Yes)
+    #LightSeaGreen:Navigate to the Property Page;
+    #LightSeaGreen:Property is seen on the property list;
+    #LightSeaGreen:Property is auto-pushed to the marketplace;
+    #LightSeaGreen:Property is not published to subdomain;
+  else (No - Click 'Publish')
+    #LightSeaGreen:Navigate to the Property Page;
+    #LightSeaGreen:Property is seen on the property list;
+    #LightSeaGreen:Property is auto-pushed to the marketplace;
+    #LightSeaGreen:Property is Published to Subdomain;
+  endif
+else (No - Aggregate Unchecked)
+  if (Click 'Save and Continue Later'?) then (Yes)
+     #LightSeaGreen:Navigate to the Property Page;
+     #LightSeaGreen:Property is seen on the property list;
+     #LightSeaGreen:Property is not auto-pushed to the marketplace;
+     #LightSeaGreen:Property is not Published to Subdomain;
+
+  else (No - Click 'Publish')
+     #LightSeaGreen:Navigate to the Property Page;
+     #LightSeaGreen:Property is seen on the property list;
+     #LightSeaGreen:Property is not auto-pushed to the marketplace;
+     #LightSeaGreen:Property is Published to Subdomain;
+  endif
+endif
+stop
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+start
+#LightSeaGreen:Owner;
+#LightSeaGreen:app.landest.co;
+#LightSeaGreen:Login Page;
+#LightSeaGreen:Specify credentials;
+#LightSeaGreen:Login;
+#LightSeaGreen:HomePage;
+#LightSeaGreen:Click Onboarding Menu;
+-> Displays setup wizard;
+#LightSeaGreen:Specify Business information
+-Business Name
+-Support email
+-Business Profile;
+note right
+  Ask the stakeholders about
+  the implementation of "About"
+end note
+-> Next;
+#LightSeaGreen:Specify Contact information
+-Means of Identification Doc upload;
+
+-> Next;
+#LightSeaGreen:KYC Detail
+-Business Doc upload;
+-> Navigates to onboarding page;
+
+#LightSeaGreen:Business document submitted
+successfully Feedback is displayed;
+stop
+@enduml
