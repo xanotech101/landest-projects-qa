@@ -31,7 +31,7 @@ the default whenever the property page loads
 8. Add property button
 ;
 
-#LightSeaGreen:Click Add Property button;
+#LightSeaGreen:Click Investment Property button;
 note right
   The Add property process should be
   in a wizard design
@@ -43,6 +43,7 @@ end note
 -Value
 -Country
 -City
+-state
 -Address
 -Amenities dropdown
 -Amenities count

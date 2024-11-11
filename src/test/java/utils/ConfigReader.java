@@ -1,30 +1,34 @@
 package utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
-    static Properties prop;
+    private static Properties prop;
 
-
-    public static Properties readProperties(String filepath){
-
-        try {
-            FileInputStream fis = new FileInputStream(filepath);
+    // Loads the properties only once
+    public static void readProperties(String filepath) {
+        if (prop == null) {
             prop = new Properties();
-            prop.load(fis);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            try (FileInputStream fis = new FileInputStream(filepath)) {
+                prop.load(fis);
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException("Failed to load configuration file at " + filepath);
+            }
         }
-        return prop;
-
     }
-    public static String getPropertyValue(String key){
+
+    // Overload for default file path
+    public static void readProperties() {
+        readProperties("src/test/resources/config/config.properties");
+    }
+
+    public static String getPropertyValue(String key) {
+        if (prop == null) {
+            readProperties();
+        }
         return prop.getProperty(key);
     }
-
 }
