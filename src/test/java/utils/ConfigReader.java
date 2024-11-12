@@ -1,34 +1,38 @@
 package utils;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
-    private static Properties prop;
+    static Properties prop;
+    static Dotenv dotenv;
 
-    // Loads the properties only once
-    public static void readProperties(String filepath) {
-        if (prop == null) {
+    static {
+        dotenv = Dotenv.configure().load();  // this Loads/opens the .env file from the project root
+    }
+//Method to open and read the config.properties file
+    public static Properties readProperties(String filepath) {
+        try {
+            FileInputStream fis = new FileInputStream(filepath);
             prop = new Properties();
-            try (FileInputStream fis = new FileInputStream(filepath)) {
-                prop.load(fis);
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new RuntimeException("Failed to load configuration file at " + filepath);
-            }
+            prop.load(fis);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return prop;
     }
-
-    // Overload for default file path
-    public static void readProperties() {
-        readProperties("src/test/resources/config/config.properties");
-    }
-
+//method to retrieve the values from the config.properties file
     public static String getPropertyValue(String key) {
-        if (prop == null) {
-            readProperties();
-        }
         return prop.getProperty(key);
     }
+//method to retrieve the values from the .env file
+    public static String getEnvValue(String key) {
+        return dotenv.get(key);  // Retrieves value from .env file
+    }
 }
+

@@ -10,8 +10,8 @@ import utils.CommonMethods;
 public class AgencyOnboardingSteps extends CommonMethods {
 
 
-    @Given("The Agency representative opens the app.landest.co url")
-    public void the_agency_representative_opens_the_app_landest_co_url() {
+    @Given("The Agency representative opens the portal")
+    public void the_agency_representative_opens_the_portal() {
         openBrowserAndLaunchApplication();
     }
 

@@ -5,6 +5,7 @@ target/
 
 
 /src/test/resources/config/config.properties
+.env
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

@@ -1,0 +1,51 @@
+# Java Maven Selenium cucumber Test Framework
+
+## Overview
+This is a Java-based test automation framework using Selenium WebDriver, cucumber, and Maven. The framework is designed to automate end-to-end UI tests for [Application Name].
+
+The framework follows a modular structure:
+
+src/test/java: Contains Framework components (e.g., utility classes, page object models and step definitions)
+src/test/resources: Holds feature files, test data and configuration files.
+
+Key Directories
+Pages: Page Object Model classes for each page of the application.
+Tests: Test cases categorized by functionality.
+Utilities: Helper classes for tasks like reading data, capturing screenshots, etc.
+Dependencies
+The main dependencies for this project are:
+
+Selenium WebDriver
+Cucumber
+Maven Surefire Plugin
+All dependencies are defined in pom.xml:
+
+Reporting
+Test results are generated as HTML reports by default. You can find the test report in target/surefire-reports after running the tests.
+
+
+
+The ConfigReader class is designed to read configuration values from two sources:
+
+1. A .properties file (typically config.properties) using Java's Properties class.
+2. A .env file using the Dotenv library, which allows managing environment variables.
+
+
+The Constants class is a utility class that defines a constant for the file path of the config.properties file. This file path is typically used to load configuration properties within the project.
+
+Purpose of CONFIGURATION_FILEPATH
+The CONFIGURATION_FILEPATH constant provides a consistent and convenient way to access the config.properties file path across the project. This is useful because:
+
+1. Centralized Management: If the path to config.properties changes, you only need to update it here rather than in multiple locations.
+2. Ease of Access: Other classes can refer to Constants.CONFIGURATION_FILEPATH to access the file path, ensuring consistency and reducing the risk of typos.
+
+The CommonMethods class
+used to centralize repetitive actions that need to be performed throughout the application. This is especially useful in scenarios where the same action (e.g., opening a browser, logging in, waiting for an element, etc.) is required in multiple tests or classes.
+Example: Instead of writing code to open a browser in every individual test, you can define it once in the CommonMethods class and call it when needed.
+
+1.Improving Code Maintainability
+By encapsulating common actions in a dedicated class, the code is easier to maintain. If a change needs to be made to a commonly used method (e.g., changing how the browser is launched or modifying login steps), you only need to modify it in one place rather than updating every test script.
+
+2. Encapsulation of Common Functionalities
+Common tasks like launching browsers, logging into an application, handling waits, etc., can be abstracted away into methods, so individual test cases don’t need to deal with the implementation details of these tasks.
+Example: A method like openBrowserAndLaunchApplication() abstracts away all the complexity of initializing the browser, configuring settings, and navigating to a URL.
