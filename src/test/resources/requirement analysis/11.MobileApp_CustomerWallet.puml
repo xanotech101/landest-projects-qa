@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:Customer;
+#LightSeaGreen:Wallet;
+
+stop
+
+@enduml

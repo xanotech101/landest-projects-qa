@@ -3,8 +3,13 @@ start
 #LightSeaGreen:Owner;
 #LightSeaGreen:app.landest.co;
 #LightSeaGreen:Login Page;
-#LightSeaGreen:Specify credentials;
-#LightSeaGreen:Click Login Button;
+repeat:Specify credentials;
+ #LightSeaGreen:Click Login Button;
+backward :Display error messages;
+repeat while (Is credential Valid?) is (No)
+
+-> Yes;
+
 
 if (Is email verified?) then (yes)
     if (Are credentials valid?) then (no)

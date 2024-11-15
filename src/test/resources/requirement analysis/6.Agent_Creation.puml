@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+split
+#LightSeaGreen: Agency Representative;
+#LightSeaGreen:Backoffice;
+#LightSeaGreen:Click Agents;
+#LightSeaGreen:Agents List Page;
+note right
+  There should be facility to resend
+  agent creation email containg credentials
+end note
+split
+#LightSeaGreen:Click Add single Agent;
+#LightSeaGreen:Registration form is displayed;
+note right
+  There should be a non-compulsory referral code
+  field. This code is used to track agent milestone
+end note
+repeat:Fill Registration Form;
+:Click Create;
+backward:Display error messages;
+repeat while (Is Form accurately filled?) is (No)
+-> Yes;
+
+
+split again
+#LightSeaGreen:Bulk upload Agent;
+#LightSeaGreen:Download template;
+#LightSeaGreen:Fill template;
+#LightSeaGreen:Attach template;
+#LightSeaGreen:Upload template;
+end split
+
+
+
+split
+-> (System auto sends email notification to agent);
+
+#LightSeaGreen:Email Notification contain login credentials and portal link;
+  #LightSeaGreen:Click link;
+#LightSeaGreen:Agent is navigated to Agency subdomain;
+stop
+
+split again
+#LightSeaGreen:Success feedback message;
+#LightSeaGreen:Rep is navigated to list of agents;
+stop
+end split
+
+split again
+#LightSeaGreen:Agent;
+#LightSeaGreen:Agency subdomain;
+
+stop
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:Customer;
+#LightSeaGreen:Mobile app;
+#LightSeaGreen:Click Register;
+#LightSeaGreen:Registration form is displayed;
+note right
+  There should be a non-compulsory referral code
+  field. This code is used to track agent milestone
+end note
+
+repeat:Fill Registration Form;
+:Click Create Account;
+backward:Display error messages;
+repeat while (Is Form accurately filled?) is (No)
+-> Yes
+
+1. System auto sends email notification
+2. An e-wallet is created for the user;
+
+#LightSeaGreen:OTP verification page;
+while (Email received?) is (No)
+  #LightSeaGreen:Click Resend code;
+endwhile
+-> Yes;
+
+repeat:Paste OTP;
+ #LightSeaGreen:Click Verify OTP;
+backward :Display error messages;
+repeat while (Is OTP Valid?) is (No)
+
+-> Yes
+(System navigates to login page);
+ #LightSeaGreen:Success feedback;
+  #LightSeaGreen:Click Login;
+#LightSeaGreen:Login Page;
+
+stop
+@enduml

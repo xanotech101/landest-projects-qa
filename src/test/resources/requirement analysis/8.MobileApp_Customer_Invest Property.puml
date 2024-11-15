@@ -1,0 +1,80 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+#LightSeaGreen:Customer;
+#LightSeaGreen:Mobile app;
+#LightSeaGreen:Login Page;
+repeat:Specify credentials;
+ #LightSeaGreen:Click Login Button;
+backward :Display error messages;
+repeat while (Is credential Valid?) is (No)
+
+-> Yes;
+#LightSeaGreen:HomePage;
+#LightSeaGreen:Property Menu;
+#LightSeaGreen:Clicks on any Property for investment;
+#LightSeaGreen:Property description Page;
+split
+#LightSeaGreen:Property overview tab;
+split again
+#LightSeaGreen:Investment details Tab
+-Customer can see the investment details
+-Customer can calculate investments
+using the Investment calculator
+-Customer can vie the documents of the property;
+end split
+#LightSeaGreen:Clicks on Buy investment button;
+#LightSeaGreen:Buy investment page
+-Specify investment shares
+-Specify investment duration;
+while (Is specified share higher that available shares?) is (yes)
+
+                #LightSeaGreen:Display error message;
+            endwhile
+            ->No;
+while (Is investment duration within range?) is (No)
+
+                #LightSeaGreen:Display error message;
+            endwhile
+            ->Yes;
+#LightSeaGreen:Click buy investment button;
+#LightSeaGreen:Read only screen displaying
+-No of shares available
+-No of share bought
+-Investment duration
+-Expected ROI;
+#LightSeaGreen:Click proceed button;
+#LightSeaGreen:Selects payment method;
+split
+#LightSeaGreen:Bank Transfer;
+#LightSeaGreen:Display Bank account details
+and expected amount
+Click "I have made this transfer" button";
+
+ while (Is amount paid correct?) is (No)
+
+                #LightSeaGreen:incorrect payment amount;
+            endwhile
+            ->Yes;
+#LightSeaGreen:Payment confirmation Page;
+#LightSeaGreen:Attach payment receipt;
+#LightSeaGreen:Click confirm payment button;
+#LightSeaGreen:Display payment status feedback message;
+split again
+#LightSeaGreen:Wallet;
+while (Is wallet funded?) is (No)
+
+                #LightSeaGreen:Fund you wallet;
+            endwhile
+            ->Yes;
+
+while (Is wallet amount sufficient for transaction?) is (No)
+
+                #LightSeaGreen:Fund you wallet;
+            endwhile
+            ->Yes;
+#LightSeaGreen:Enter Transaction Pin;
+end split
+#LightSeaGreen:Beneficiary account should be credited;
+@enduml

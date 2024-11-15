@@ -49,3 +49,11 @@ By encapsulating common actions in a dedicated class, the code is easier to main
 2. Encapsulation of Common Functionalities
 Common tasks like launching browsers, logging into an application, handling waits, etc., can be abstracted away into methods, so individual test cases don’t need to deal with the implementation details of these tasks.
 Example: A method like openBrowserAndLaunchApplication() abstracts away all the complexity of initializing the browser, configuring settings, and navigating to a URL.
+
+BDD APPROACH
+IN the framework my feature files focus on behavior rather than techical details by using "When" for actions only.
+This keeps my feature files clean. Keeping assertions separate as validations makes my scenarios more readable and logical.
+
+1. Clear Separation of Actions and Assertions: Using only "When" for actions clarifies which steps actively interact with the application, and having assertions as separate validation steps keeps the focus on outcomes.
+2. Improved Readability and Maintainability: This organization makes it easier for stakeholders to understand the feature files, as they emphasize the what (actions) and then (expected outcomes).
+3. Single Responsibility Principle: This structure follows the idea of testing one aspect of behavior per step, which leads to more focused and effective tests.

@@ -9,7 +9,12 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         //features is used to provide the path of all my feature files
         features = "src/test/resources/features/",
-        glue = "steps"
+        glue = "steps",
+        //when dry is set to true it stops actual execution and generates any missing step definition
+        dryRun = true,
+        tags = "@backOffice",
+        monochrome = true, //to remove irrelevant information from the console
+        plugin= {"pretty"}
 )
 
 

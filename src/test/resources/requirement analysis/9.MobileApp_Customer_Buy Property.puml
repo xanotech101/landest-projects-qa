@@ -40,4 +40,5 @@ split
 split again
 #LightSeaGreen:Wallet;
 end split
+#LightSeaGreen:Beneficiary account should be credited;
 @enduml

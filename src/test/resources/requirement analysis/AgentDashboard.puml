@@ -2,7 +2,7 @@
 'https://plantuml.com/activity-diagram-beta
 
 start
-#LightSeaGreen:User;
+#LightSeaGreen:Agent;
 #LightSeaGreen:Access subdomain url;
 #LightSeaGreen:Display landing page;
 
