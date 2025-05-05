@@ -3,7 +3,7 @@
 
 start
 #LightSeaGreen:Owner;
-#LightSeaGreen:app.landest.co;
+#LightSeaGreen:app.testwesite.com;
 #LightSeaGreen:Click Register;
 #LightSeaGreen:Registration form is displayed;
 note right
@@ -14,13 +14,18 @@ note right
 end note
 
 repeat:Fill Registration Form;
-:Click Sign up;
-backward:Display error messages;
-repeat while (Is Form accurately filled?) is (No)
+backward:Sign up button deactivated;
+repeat while (Are compulsory fields omitted?) is (Yes)
 
--> Yes
+-> No;
 
-(System auto sends email notification);
+repeat:Specify Password;
+backward:Error message displayed;
+repeat while (Do specified passwords meet system criteria?) is (No)
+
+-> Yes;
+#LightSeaGreen:Click sign up;
+->System auto sends email notification;
 
 #LightSeaGreen:OTP verification page;
 while (Email received?) is (No)

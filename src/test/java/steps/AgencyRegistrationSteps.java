@@ -9,18 +9,16 @@ public class AgencyRegistrationSteps extends CommonMethods {
 
     @Given("The Agency representative opens the portal")
     public void the_agency_representative_opens_the_portal() {
-        openBrowserAndLaunchApplication();
+        openBrowserAndLaunchBackOfficeApplication();
     }
 
     @When("Representative clicks on register link")
     public void representative_clicks_on_register_link() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        click(register.registrationLink);
     }
     @When("Representative fills registration form correctly")
     public void representative_fills_registration_form_correctly() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        sendText(register.firstName, );
     }
     @When("Representative clicks sign up button")
     public void representative_clicks_sign_up_button() {
